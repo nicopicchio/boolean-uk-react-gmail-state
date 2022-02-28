@@ -8,7 +8,7 @@ import { useState } from 'react'
 
 function App() {
   const [inbox, setInbox] = useState(initialEmails)
-
+  
   return (
     <div className="app">
       <Header />
@@ -40,7 +40,29 @@ function App() {
           </li>
         </ul>
       </nav>
-      <main className="emails">{/* Render a list of emails here */}</main>
+      <main className="emails">
+        <ul>
+          {inbox.map(function(email) {
+            return (
+            <li className="email">
+            <div className="select">
+            <input
+              className="select-checkbox"
+              type="checkbox"/>
+            </div>
+            <div className="star">
+            <input
+              className="star-checkbox"
+              type="checkbox"
+            />
+            </div>
+            <div className="sender">{email.sender}</div>
+            <div className="title">{email.title}</div>
+            </li>
+            )
+          })}
+        </ul>
+      </main>
     </div>
   )
 }
