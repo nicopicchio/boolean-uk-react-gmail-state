@@ -11,7 +11,7 @@ export default [
     sender: `Zoom`,
     title: `Sean Davison has joined your Personal Meeting Room`,
     starred: false,
-    read: false
+    read: true
   },
   {
     id: 3,
@@ -25,13 +25,13 @@ export default [
     sender: `The Calendly Team`,
     title: `Use more than one calendar?`,
     starred: false,
-    read: false
+    read: true
   },
   {
     id: 5,
     sender: `Patrick`,
     title: `Updated invitation: Coding chat with Nico`,
     starred: true,
-    read: false
+    read: true
   }
 ]
