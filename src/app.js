@@ -4,9 +4,10 @@ import initialEmails from './data/emails'
 
 import './styles/app.css'
 
+import { useState } from 'react'
+
 function App() {
-  // Use initialEmails for state
-  console.log(initialEmails)
+  const [inbox, setInbox] = useState(initialEmails)
 
   return (
     <div className="app">
