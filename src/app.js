@@ -8,6 +8,7 @@ import { useState } from 'react';
 
 function App() {
 	const [inbox, setInbox] = useState(initialEmails);
+  const [hideRead, setHideRead] = useState(false);
 
 	const toggleRead = (targetEmail) => {
 		setInbox(
@@ -31,16 +32,9 @@ function App() {
 		);
 	};
 
+	const unreadEmails = inbox.filter((email) => email.read === false);
   
-
-	// const countEmailsToRead = (inboxArray) => {
-	// 	let count;
-	// 	inboxArray.filter((email) => {
-	// 		if (email.read === true) {
-	// 			return count + 1;
-	// 		} else count = count;
-	// 	});
-	// };
+	const starredEmails = inbox.filter((email) => email.starred === true);
 
 	return (
 		<div className="app">
@@ -52,14 +46,14 @@ function App() {
 						// onClick={() => {}}
 					>
 						<span className="label">Inbox</span>
-						<span className="count">?</span>
+						<span className="count">{unreadEmails.length}</span>
 					</li>
 					<li
 						className="item"
 						// onClick={() => {}}
 					>
 						<span className="label">Starred</span>
-						<span className="count">?</span>
+						<span className="count">{starredEmails.length}</span>
 					</li>
 
 					<li className="item toggle">
@@ -67,7 +61,7 @@ function App() {
 						<input
 							id="hide-read"
 							type="checkbox"
-							checked={false}
+							checked={hideRead}
 							// onChange={() => {}}
 						/>
 					</li>
@@ -82,7 +76,7 @@ function App() {
 									<input
 										className="select-checkbox"
 										type="checkbox"
-										onChange={(e) => toggleRead(email, e)}
+										onChange={() => toggleRead(email)}
 										checked={email.read}
 									/>
 								</div>
